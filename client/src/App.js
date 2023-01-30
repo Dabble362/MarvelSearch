@@ -1,11 +1,31 @@
+import { Component } from "react";
 import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello There</h1>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { apiResponse: "" };
+  }
+
+  callAPI() {
+    fetch("http://localhost:9000/testAPI")
+      .then((res) => res.text())
+      .then((res) => this.setState({ apiResponse: res }))
+      .catch((err) => err);
+  }
+
+  componentDidMount() {
+    this.callAPI();
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Hello There</h1>
+        <p>{this.state.apiResponse}</p>
+      </div>
+    );
+  }
 }
 
 export default App;
