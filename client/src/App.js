@@ -2,6 +2,7 @@ import { Component } from "react";
 import "./App.css";
 import md5 from "md5";
 import IronMan from "./components/loadIronMan";
+import Header from "./components/header";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -25,8 +26,8 @@ class App extends Component {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data.results);
-        this.setState({ apiResponse: data.data.results[0].name });
+        // console.log(data.data.results);
+        // this.setState({ apiResponse: data.data.results[0].name });
       })
 
       .catch((err) => console.log(err));
@@ -39,8 +40,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Header />
         <h1>Hello There</h1>
-        <p>{this.state.apiResponse}</p>
+        {/* <p>{this.state.apiResponse}</p> */}
         <IronMan />
       </div>
     );

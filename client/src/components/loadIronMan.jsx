@@ -20,22 +20,21 @@ class IronMan extends React.Component {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data.results);
-        this.setState({ profile: data.data.results });
+        console.log(data.data.results[0]);
+        this.setState({ profile: data.data.results[0] });
       })
 
       .catch((err) => console.log(err));
   }
 
   render() {
+    const { thumbnail } = this.state.profile;
+    const url = `http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55`;
     return (
       <div>
-        <h2>{this.state.profile.data.name}</h2>
-        <img
-          alt="iron man"
-          src={this.state.profile.data.thumbnail + ".jpg"}
-        ></img>
-        <p>{this.state.profile.data.description}</p>
+        <h2>{this.state.profile.name}</h2>
+        <img alt="iron man" src={`${url}/portrait_medium.jpg`}></img>
+        <p>{this.state.profile.description}</p>
       </div>
     );
   }
