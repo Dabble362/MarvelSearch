@@ -41,7 +41,6 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <h1>Hello There</h1>
         {/* <p>{this.state.apiResponse}</p> */}
         <IronMan />
       </div>

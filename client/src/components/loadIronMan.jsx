@@ -3,7 +3,9 @@ import md5 from "md5";
 
 class IronMan extends React.Component {
   state = {
-    profile: [],
+    name: "",
+    description: "",
+    imagePath: "",
   };
 
   componentDidMount() {
@@ -19,22 +21,27 @@ class IronMan extends React.Component {
       `${rEACT_APP_BASE_URL}/characters?name=${searchQuery}&ts=${ts}&apikey=${rEACT_APP_PUB_KEY}&hash=${hashedValue}`
     )
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data.data.results[0]);
-        this.setState({ profile: data.data.results[0] });
+      .then((hero) => {
+        console.log(hero.data.results[0]);
+        this.setState({
+          name: hero.data.results[0].name,
+          description: hero.data.results[0].description,
+          imagePath: hero.data.results[0].thumbnail.path,
+        });
       })
 
       .catch((err) => console.log(err));
   }
 
   render() {
-    const { thumbnail } = this.state.profile;
-    const url = `http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55`;
     return (
       <div>
-        <h2>{this.state.profile.name}</h2>
-        <img alt="iron man" src={`${url}/portrait_medium.jpg`}></img>
-        <p>{this.state.profile.description}</p>
+        <h2>{this.state.name}</h2>
+        <img
+          alt="iron man"
+          src={`${this.state.imagePath}/portrait_medium.jpg`}
+        ></img>
+        <p>{this.state.description}</p>
       </div>
     );
   }
