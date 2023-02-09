@@ -35,7 +35,7 @@ class IronMan extends React.Component {
         <h2>{this.state.name}</h2>
         <img
           alt="iron man"
-          src={`${this.state.imagePath}/portrait_medium.jpg`}
+          src={`${this.state.imagePath}/portrait_uncanny.jpg`}
         ></img>
         <p>{this.state.description}</p>
       </div>
