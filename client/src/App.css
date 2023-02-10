@@ -5,6 +5,9 @@
   align-items: center;
 }
 
+.heroList ul {
+  list-style: none;
+}
 .profileContainer h1 {
   font-weight: 800;
 }
@@ -14,7 +17,8 @@
 }
 
 .descriptionContainer,
-.profileContainer {
+.profileContainer,
+.heroList {
   display: flex;
 }
 
