@@ -1,5 +1,31 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heroList li {
+  list-style: none;
+}
+
+.profileContainer h1 {
+  font-weight: 800;
+}
+
+.profileContainer {
+  flex-direction: row;
+}
+
+.descriptionContainer,
+.profileContainer,
+.heroList {
+  display: flex;
+}
+
+.descriptionContainer {
+  flex-direction: column;
+  width: 80vw;
 }
 
 .App-logo {
@@ -32,6 +58,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
