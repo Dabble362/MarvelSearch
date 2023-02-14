@@ -32,6 +32,7 @@ export default class HeroInfo extends React.Component {
   render() {
     return (
       <div>
+        <h2>{this.props.propKeyForTesting}</h2>
         <h2>{this.state.name}</h2>
         <img
           alt="iron man"
