@@ -1,5 +1,5 @@
-// import { Component } from "react";
 import "./App.css";
+
 import IronMan from "./components/loadIronMan";
 import Header from "./components/header";
 import NavBar from "./components/navigation";
@@ -9,7 +9,8 @@ function App() {
 //   const [showDetails, setShowDetails] = useState(false);
 //   const [avengerData, setAvengerData] = useState([]);
 
-  const handleImageClick = (image) => {
+  const handleImageClick = (heroName) => {
+    console.log(`You clicked on ${heroName}.`);
     // setSelectedAvenger(image);
     // setShowDetails(true);
   }
@@ -22,7 +23,7 @@ function App() {
     <div className="App">
       <Header />
       {/* <NavBar onImageClick={handleImageClick} imagesData={imagesData} /> */}
-      <NavBar onImageClick={handleImageClick}/>
+      <NavBar onClick={(hero) => handleImageClick(hero)}/>
       {/* {showDetails && (
         <IronMan
           image={selectedAvenger}

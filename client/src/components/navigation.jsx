@@ -48,6 +48,7 @@ class NavBar extends React.Component {
             return (
               <li>
                 <img
+                  onClick={() => this.props.onClick(hero)}
                   alt={hero}
                   src={`${this.state[hero]}/portrait_medium.jpg`}
                 ></img>
