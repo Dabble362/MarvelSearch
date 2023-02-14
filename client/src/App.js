@@ -2,7 +2,7 @@ import "./App.css";
 
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
-import IronMan from "./components/IronMan";
+import HeroInfo from "./components/HeroInfo";
 
 export default function App() {
   const handleImageClick = (heroName) => {
@@ -13,7 +13,7 @@ export default function App() {
     <div className="App">
       <Header />
       <NavBar onClick={(hero) => handleImageClick(hero)}/>
-      <IronMan />
+      <HeroInfo />
     </div>
   );
 }
