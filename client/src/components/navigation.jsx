@@ -46,7 +46,7 @@ class NavBar extends React.Component {
         <ul className="heroList">
           {Object.keys(this.state).map((hero) => {
             return (
-              <li>
+              <li key={hero}>
                 <img
                   onClick={() => this.props.onClick(hero)}
                   alt={hero}
