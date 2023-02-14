@@ -1,7 +1,7 @@
 import React from "react";
 import md5 from "md5";
 
-class NavBar extends React.Component {
+export default class NavBar extends React.Component {
   state = {
     ironMan: "",
     captainAmerica: "",
@@ -60,5 +60,3 @@ class NavBar extends React.Component {
     );
   }
 }
-
-export default NavBar;

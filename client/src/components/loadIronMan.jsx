@@ -1,7 +1,7 @@
 import React from "react";
 import md5 from "md5";
 
-class IronMan extends React.Component {
+export default class IronMan extends React.Component {
   state = {
     name: "",
     description: "",
@@ -42,5 +42,3 @@ class IronMan extends React.Component {
     );
   }
 }
-
-export default IronMan;
