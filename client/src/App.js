@@ -10,7 +10,7 @@ export default function App() {
   const [hero, setHero] = useState("my foo hero");
 
   const handleImageClick = (heroName) => {
-    console.log(`You clicked on ${heroName}.`);
+    setHero(heroName);
   }
 
   return (
@@ -20,7 +20,7 @@ export default function App() {
         onClick={(hero) => handleImageClick(hero)}
       />
       <HeroInfo
-        propKeyForTesting={hero}
+        selectedHero={hero}
       />
     </div>
   );
