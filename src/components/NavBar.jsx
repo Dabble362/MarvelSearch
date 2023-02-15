@@ -18,13 +18,13 @@ export default class NavBar extends React.Component {
     var hashedValue = md5(message);
 
     const heroes = {
-      "ironMan": "iron man",
-      "captainAmerica": "captain america",
-      "thor": "thor",
-      "blackWidow": "black widow",
-      "theHulk": "hulk",
-      "hawkeye": "hawkeye",
-    }
+      ironMan: "iron man",
+      captainAmerica: "captain america",
+      thor: "thor",
+      blackWidow: "black widow",
+      theHulk: "hulk",
+      hawkeye: "hawkeye",
+    };
 
     Object.entries(heroes).forEach(([stateKey, heroName]) => {
       fetch(
@@ -48,6 +48,7 @@ export default class NavBar extends React.Component {
             return (
               <li key={hero}>
                 <img
+                  className="heroThumb"
                   onClick={() => this.props.onClick(hero)}
                   alt={hero}
                   src={`${this.state[hero]}/portrait_medium.jpg`}
