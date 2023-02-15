@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import md5 from "md5";
 
 const HERO_SEARCH_QUERIES = {
-  "ironMan": "iron man",
-  "captainAmerica": "captain america",
-  "thor": "thor",
-  "blackWidow": "black widow",
-  "theHulk": "hulk",
-  "hawkeye": "hawkeye",
-}
+  ironMan: "iron man",
+  captainAmerica: "captain america",
+  thor: "thor",
+  blackWidow: "black widow",
+  theHulk: "hulk",
+  hawkeye: "hawkeye",
+};
 
 export default function HeroInfo(props) {
   const [name, setName] = useState("");
@@ -23,7 +23,7 @@ export default function HeroInfo(props) {
       const ts = new Date().getTime();
       const message =
         ts + process.env.REACT_APP_PRI_KEY + process.env.REACT_APP_PUB_KEY;
-      var hashedValue = md5(message);
+      const hashedValue = md5(message);
 
       fetch(
         `${process.env.REACT_APP_BASE_URL}/characters?name=${searchQuery}&ts=${ts}&apikey=${process.env.REACT_APP_PUB_KEY}&hash=${hashedValue}`
@@ -45,12 +45,8 @@ export default function HeroInfo(props) {
 
   return (
     <div>
-      <h2>{props.selectedHero}</h2>
       <h2>{name}</h2>
-      <img
-        alt={props.selectedHero}
-        src={`${imagePath}/portrait_uncanny.jpg`}
-      />
+      <img alt={props.selectedHero} src={`${imagePath}/portrait_uncanny.jpg`} />
       <p>{description}</p>
     </div>
   );
