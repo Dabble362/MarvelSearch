@@ -1,7 +1,7 @@
 import React from "react";
 import md5 from "md5";
 
-class NavBar extends React.Component {
+export default class NavBar extends React.Component {
   state = {
     ironMan: "",
     captainAmerica: "",
@@ -46,8 +46,9 @@ class NavBar extends React.Component {
         <ul className="heroList">
           {Object.keys(this.state).map((hero) => {
             return (
-              <li>
+              <li key={hero}>
                 <img
+                  onClick={() => this.props.onClick(hero)}
                   alt={hero}
                   src={`${this.state[hero]}/portrait_medium.jpg`}
                 ></img>
@@ -59,5 +60,3 @@ class NavBar extends React.Component {
     );
   }
 }
-
-export default NavBar;

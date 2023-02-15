@@ -1,24 +1,27 @@
-import { Component } from "react";
+import { useState } from "react";
+
 import "./App.css";
-import IronMan from "./components/loadIronMan";
-import Header from "./components/header";
-import NavBar from "./components/navigation";
 
-class App extends Component {
-  // const [selectedAvenger, setSelectedAvenger] = useState("");
-  // const [showDetails, setShowDetails] = useState(false);
-  // const [avengerData, setAvengerData] = useState([]);
+import Header from "./components/Header";
+import NavBar from "./components/NavBar";
+import HeroInfo from "./components/HeroInfo";
 
+export default function App() {
+  const [hero, setHero] = useState("my foo hero");
 
-  render() {
-    return (
-      <div className="App">
-        <Header />
-        <NavBar />
-        <IronMan />
-      </div>
-    );
+  const handleImageClick = (heroName) => {
+    setHero(heroName);
   }
-}
 
-export default App;
+  return (
+    <div className="App">
+      <Header />
+      <NavBar
+        onClick={(hero) => handleImageClick(hero)}
+      />
+      <HeroInfo
+        selectedHero={hero}
+      />
+    </div>
+  );
+}
